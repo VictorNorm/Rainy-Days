@@ -1,0 +1,275 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(https://fonts.google.com/specimen/Montserrat?query=montserr);
+}
+
+/* Universal selectors */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    font-size: large;
+}
+
+/* Global styles */
+
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: var(--grey)
+}
+
+p {
+    color: var(--grey);
+    font-size: 13px;
+}
+
+
+/* CSS Variables */
+
+
+:root {
+    --grey: rgb(58, 57, 57);
+    --white: #FFF;
+    --blue: #2a4359;
+}
+
+
+
+
+/* Header */
+
+
+header {
+    display: flex;
+    max-width: 1300px;
+    margin: auto;
+    border: solid 2px black;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.logo {
+    width: 130px;
+}
+
+
+/* Nav */
+
+nav {
+    flex: 1;
+}
+
+
+nav li {
+    display: inline-block;
+    margin: 0px 40px;
+}
+
+
+
+/* Top search bar */
+
+.top-search-bar {
+    display: flex;
+    background-color: var(--blue);
+    justify-content: center;
+    padding: 10px;
+    color: #FFF;
+    align-items: center;
+}
+
+.search-box {
+    border: none;
+    padding: 3px;
+    width: 300px;
+    margin: 0px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#top-search-icon {
+    font-size: 26px;
+}
+
+
+
+/* Main */
+
+main {
+    border: 2px solid green;
+    max-width: 1300px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 25px;
+    color: var(--grey);
+}
+
+h2 {
+    font-size: 22px;
+}
+
+
+
+/* Add-wrapper */
+
+
+.add-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 30px;
+}
+
+
+/* Add-1 */
+
+.add-1 {
+    flex-basis: 100%;
+    display: flex;
+    background-color: rgba(214, 209, 209, 0.575);
+    min-height: 450px;
+    border: 1px solid var(--blue);
+    margin-bottom: 20px;
+}
+
+.add-1-image img {
+    flex: 2;
+    max-height: 450px;
+    min-width: 100%;
+    display: block;
+}
+
+.add-1-box-1 {
+    flex: 2;
+}
+
+.add-1-box-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-1-box-2 h2 {
+    font-weight: 600;
+    margin: 30px 20px;
+}
+
+.add-1-box-2 a {
+    padding: 10px 30px;
+    border: solid 2px var(--blue);
+    border-radius: 8px;
+    color: var(--blue);
+    
+}
+
+.add-1-box-2 a:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+
+
+/* Adds, Small */
+
+.add-2, .add-3, .add-4, .add-5 {
+    flex: 1;
+    margin: 10px;
+    padding: 15px 10px;
+    border: solid 1px var(--blue);
+    min-height: 430px;
+    max-width: 280px;
+    min-width: 280px;
+    flex-direction: column;
+}
+
+h3 { 
+    margin-bottom: 5px;
+}
+
+.jacket-pictures-main {
+    max-height: 350px;
+}
+
+div i {
+    color: orange;
+    margin-top: 5px;
+}
+
+/* Add-3 */
+
+
+
+/* Add-4 */
+
+    
+
+
+
+
+
+/* Footer */
+
+footer {
+    display: flex;
+    max-width: 1300px;
+    margin: auto;
+    border: 2px solid red;
+    background: var(--blue);
+    min-height: 100px;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+footer li {
+    margin: 30px;
+    display: inline-block;
+}
+
+footer a {
+    color: #FFF;
+    display: inline-block
+    
+}
+
+
+
+@media only screen and (max-width: 990px) {
+
+    .add-1 {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+
+
+}
+
+
+
+@media only screen and (max-width: 750px) {
+
+    .add-1 img {
+        display: none;
+       
+    }
+
+
+
+}
