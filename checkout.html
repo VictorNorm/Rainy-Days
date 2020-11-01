@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sales of outdoor jackets" />
+    <script src="https://kit.fontawesome.com/ab5fd5efd4.js" crossorigin="anonymous"></script>
+    <title>Rainydays online shop</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="/Images/RainyDays_Logo.png" alt="Rainydays RainyDays_Logo" class="logo"
+                id="logo-header"></a>
+                <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
+                <input type="checkbox" id="hamburger-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="account.html" class="current">Account</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="cart-page-main">
+        <form class="top-search-bar">
+            <input type="text" name="search-box" placeholder="Search.." class="search-box">
+            <a href=""><i class="fas fa-search" id="top-search-icon"></i></a>
+        </form>
+
+        <h1>Checkout</h1>
+
+
+        <div class="checkout-container">
+            <div class="checkout-container-box-3">
+                <h2>Your products</h2>
+                <table>
+                    <tr>
+                        <div class="cart-product-info">
+                            <img src="/Images/Ranger_1.jpg" alt="Picture of the jacket Ranger" class="cart-pictures">
+                            <div>
+                                <h3>Ranger</h3>
+                                <p>1</p>
+                                <p>Size: Small</p>
+                                <p>Price: 169&euro;</p>
+                            </div>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="cart-product-info">
+                            <img src="/Images/Arctic_1.jpg" alt="Picture of the jacket Arctic" class="cart-pictures">
+                            <div>
+                                <h3>Arctic</h3>
+                                <p>1</p>
+                                <p>Size: Large</p>
+                                <p>Price: 169&euro;</p>
+                            </div>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+            <div class="checkout-container-box-1">
+                <h2>Billing adress</h2>
+                <form>
+                    <label for="name"><i class="fas fa-user"></i>Full name</label>
+                    <input type="text" name="name">
+                    <label for="email"><i class="far fa-envelope"></i>Email</label>
+                    <input type="email" name="email">
+                    <label for="adress"><i class="fas fa-map-marker-alt"></i>Adress</label>
+                    <input type="text" name="adress">
+                    <label for="city"><i class="fas fa-city"></i>City</label>
+                    <input type="text" name="city">
+                    <label for="postal-code"><i class="fas fa-mail-bulk"></i>Postal code</label>
+                    <input type="text" name="postal-code">
+                </form>
+            </div>
+            <div class="checkout-container-box-2">
+                <h2>Card information</h2>
+                <form>
+                    <label for="card-name"></i>Name on card</label>
+                    <input type="text" name="card-name">
+                    <label for="Credit-card-number">Credit card number</label>
+                    <input type="text" name="Credit-card-number" placeholder="1111-2222-3333-4444">
+                    <label for="adress"></i>Expiration month/year</label>
+                    <input type="text" name="expiration-date" placeholder="12/12">
+                    <label for="cvv">CVV</label>
+                    <input type="text" name="cvv" placeholder="111">
+                </form>
+                <a href="" class="cta-1">Confirm</a>
+            </div>
+        </div>
+
+
+    </main>
+    <footer>
+        <ul>
+            <li class="list-heading">About Rainydays</li>
+            <li><a href="">Rainydays club</a></li>
+        </ul>
+        <ul>
+            <li class="list-heading">Support</li>
+            <li><a href="">Delivery information</a></li>
+            <li><a href="">Contact us</a></li>
+            <li><a href="">Frequently asked questions</a></li>
+            <li><a href="">Refunds</a></li>
+            <li><a href="">Payment methods</a></li>
+        </ul>
+        <ul>
+            <li class="list-heading">Follow us</li>
+            <li><i class="fab fa-facebook"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

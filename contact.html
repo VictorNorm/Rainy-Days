@@ -11,23 +11,40 @@
     <header>
         <a href="index.html"><img src="/Images/RainyDays_Logo.png" alt="Rainydays RainyDays_Logo" class="logo"
                 id="logo-header"></a>
+                <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
+                <input type="checkbox" id="hamburger-menu">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="men.html">Men</a></li>
                 <li><a href="women.html">Women</a></li>
-                <li><a href="children.html" >Children</a></li>
                 <li><a href="contact.html" class="current">Contact</a></li>
                 <li><a href="account.html">Account</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main class="contact-main">
         <form class="top-search-bar">
             <input type="text" name="search-box" placeholder="Search.." class="search-box">
-            <i class="fas fa-search" id="top-search-icon"></i>
+            <a href=""><i class="fas fa-search" id="top-search-icon"></i></a>
         </form>
+        <h1>Contact us</h1>
+
+        <form class="contact-form">
+            <h2>Contact us</h2>
+            <h3><i class="fas fa-phone"></i> Call us at</h3>
+            <p>55 55 55 55</p>
+            <h3><i class="fas fa-comments"></i> Chat with us</h3>
+            <h3><i class="fas fa-envelope"></i> Email us</h3>
+            <label for="email">Your email</label>
+            <input type="email" name="email">
+            <label for="message">Your message</label>
+            <textarea name="message" id="" cols="30" rows="10"></textarea>
+            <a href="" class="cta-1">Send</a>
+        </form>
+        
     </main>
     <aside>
 
