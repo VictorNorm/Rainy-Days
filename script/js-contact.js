@@ -7,7 +7,7 @@ const button = document.querySelector("#contact-button");
 const textarea = document.getElementById("textarea");
 
 
-form.onsubmit = function () {
+form.onsubmit = function (event) {
     event.preventDefault();
 }
 
