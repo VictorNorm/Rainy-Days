@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/ab5fd5efd4.js" crossorigin="anonymous"></script>
     <title>Rainydays online shop</title>
     <script src="script/articles.js"></script>
-    <script src="script/details.js"></script>
+    <script src="/script/details.js"></script>
     <script src="script/cart.js"></script>
 </head>
 
@@ -48,33 +48,18 @@
                     <tr>
                         <td>
                             <div class="cart-product-info">
-                                <img src="/Images/Ranger_1.jpg" alt="Picture of the jacket Ranger" class="cart-pictures">
                                 <div>
-                                    <h3>Ranger</h3>
-                                    <p>Size: Small</p>
-                                    <p>Price: 169&euro;</p>
-                                    <a href="" class="remove">Remove</a>
+                                    <h3 class="cart-product-name"></h3>
+                                    <p class="cart-product-size"></p>
+                                    <p class="cart-product-price"></p>
+                                    <button type="submit" class="remove">Remove</button> 
                                 </div>
                             </div>
                         </td>
-                        <td><input type="number" value="1" class="quantity"></td>
-                        <td>169&euro;</td>
+                        <td><input type="number" value="" class="cart-product-quantity"></td>
+                        <td class="cart-product-price"></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="cart-product-info">
-                                <img src="/Images/Arctic_1.jpg" alt="Picture of the jacket Arctic" class="cart-pictures">
-                                <div>
-                                    <h3>Arctic</h3>
-                                    <p>Size: Large</p>
-                                    <p>Price: 169&euro;</p>
-                                    <a href="" class="remove">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td><input type="number" value="1" class="quantity"></td>
-                        <td>169&euro;</td>
-                    </tr>
+                    
                 </table>
             </div>
 

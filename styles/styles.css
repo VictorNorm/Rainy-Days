@@ -364,7 +364,7 @@ input::-webkit-inner-spin-button {
     border-radius: 5px;
 }
 
-.quantity {
+.cart-product-quantity {
     max-width: 45px;
     padding: 3px;
     border: solid 1px black;
@@ -524,7 +524,7 @@ td {
     flex-wrap: wrap;
 }
 
-.cart-pictures {
+.cart-product-pictures {
     max-height: 100px;
 }
 

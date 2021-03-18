@@ -22,7 +22,7 @@ button.disabled = true;
 
 function buttonEnabler() {
 
-    if (emailTester(email.value) === true && textarea.value.trim().length >= 14) {
+    if (emailTester(email.value) === true && textarea.value.trim().length >= 15) {
         button.disabled = false;
     } else {
         button.disabled = true;

@@ -7,7 +7,7 @@ window.onload = function load() {
         return item.articleNumber === articleNr
     })
 
-     console.log(detailsForItem);
+    //   console.log(detailsForItem);
 
     const columnPictures = document.querySelector(".product-col-1");
     const productPictureContainer = document.querySelector(".product-container-box-1");
@@ -19,10 +19,9 @@ window.onload = function load() {
     const addToCart = document.getElementById("cta-1");
     const quantity = document.getElementById("quantity");
 
-    let productQuantity = quantity.value;
-    console.log(productQuantity)
-  
-    console.log(detailsForItem);
+    
+    
+    // console.log(detailsForItem);
 
     heading.innerHTML = detailsForItem.name;
     price.innerHTML = detailsForItem.price + detailsForItem.currency;
@@ -52,6 +51,7 @@ window.onload = function load() {
 
          let colorValue = color.value;
          let sizeValue = size.value;
+         let productQuantity = quantity.value;
          
 
         let chosenProduct = {
@@ -65,9 +65,12 @@ window.onload = function load() {
         }
 
          let chosenProductJSON = JSON.stringify(chosenProduct);
-         cartArray.push(chosenProductJSON)
-         console.log(cartArray)
-         console.log(chosenProductJSON)
+         localStorage.setItem('chosenProduct', chosenProductJSON);
+
+         const myProduct = localStorage.getItem('chosenProduct');
+         console.log(myProduct);
+        
+          
          
 
         // let cartArray = JSON.parse(window.sessionStorage.cart);
