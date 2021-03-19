@@ -41,13 +41,21 @@ window.onload = function load() {
     }
 
 
-    let cartArray = [];
+    
      addToCart.addEventListener('click', e => {
 
         //Läs!!! JSON för javascript
         // Localsorage och loacalstoragesession
 
          e.preventDefault();
+
+         //Load Cart if exists
+         let myProducts = [];
+         if (localStorage.getItem("chosenProducts") !== null) { //kolla om chosenProducts finns i localstorage
+            const myProductsString = localStorage.getItem("chosenProducts"); //hämta chosenProducts stringen ifrån localstorage
+            myProducts = JSON.parse(myProductsString); // gör om stringen chosenProducts till en array
+         }
+
 
          let colorValue = color.value;
          let sizeValue = size.value;
@@ -64,13 +72,19 @@ window.onload = function load() {
             currency: detailsForItem.currency
         }
 
+        myProducts.push(chosenProduct); //lägg till chosenProduct i arrayen myProducts
+        let chosenProductsJSON = JSON.stringify(myProducts); // gör om myProducts till en string
+        localStorage.setItem('chosenProducts', chosenProductsJSON); //spara chosenProductsJSON i localstorage under chosenProducts
+
+/*
          let chosenProductJSON = JSON.stringify(chosenProduct);
          localStorage.setItem('chosenProduct', chosenProductJSON);
 
-         const myProduct = localStorage.getItem('chosenProduct');
+         const myProductString = localStorage.getItem('chosenProduct');
+         const myProduct = JSON.parse(myProductString);
          console.log(myProduct);
         
-          
+          */
          
 
         // let cartArray = JSON.parse(window.sessionStorage.cart);
