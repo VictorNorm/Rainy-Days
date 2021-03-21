@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ab5fd5efd4.js" crossorigin="anonymous"></script>
     <title>Rainydays online shop</title>
-    
+    <script src="/script/contact.js"></script>
 </head>
 <body>
     <header>
@@ -21,7 +21,10 @@
                 <li><a href="women.html">Women</a></li>
                 <li><a href="contact.html" class="current">Contact</a></li>
                 <li><a href="account.html">Account</a></li>
-                <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a>
+                    <div class="numberOfProducts">
+                        <p class="numberOfProductsInCart">0</p>
+                    </div>
             </ul>
         </nav>
     </header>
@@ -51,6 +54,7 @@
             </div>
             
             <button type="submit" id="contact-button" disabled>Send</button>
+            <div class="messageSuccess">Your message has been sent successfully!</div>
             <h3><i class="fas fa-phone"></i> You can also call us at</h3>
             <p>55 55 55 55</p>
         </form>

@@ -19,9 +19,6 @@ window.onload = function load() {
     const addToCart = document.getElementById("cta-1");
     const quantity = document.getElementById("quantity");
 
-    
-    
-    // console.log(detailsForItem);
 
     heading.innerHTML = detailsForItem.name;
     price.innerHTML = detailsForItem.price + detailsForItem.currency;
@@ -41,26 +38,22 @@ window.onload = function load() {
     }
 
 
-    
-     addToCart.addEventListener('click', e => {
+    addToCart.addEventListener('click', e => {
 
-        //Läs!!! JSON för javascript
-        // Localsorage och loacalstoragesession
+        e.preventDefault();
 
-         e.preventDefault();
-
-         //Load Cart if exists
-         let myProducts = [];
-         if (localStorage.getItem("chosenProducts") !== null) { //kolla om chosenProducts finns i localstorage
+        //Load Cart if exists
+        let myProducts = [];
+        if (localStorage.getItem("chosenProducts") !== null) { //kolla om chosenProducts finns i localstorage
             const myProductsString = localStorage.getItem("chosenProducts"); //hämta chosenProducts stringen ifrån localstorage
             myProducts = JSON.parse(myProductsString); // gör om stringen chosenProducts till en array
-         }
+        }
 
 
-         let colorValue = color.value;
-         let sizeValue = size.value;
-         let productQuantity = quantity.value;
-         
+        let colorValue = color.value;
+        let sizeValue = size.value;
+        let productQuantity = quantity.value;
+
 
         let chosenProduct = {
             name: detailsForItem.name,
@@ -69,47 +62,53 @@ window.onload = function load() {
             color: colorValue,
             quantity: productQuantity,
             images: detailsForItem.images,
-            currency: detailsForItem.currency
+            currency: detailsForItem.currency,
+            gender: detailsForItem.gender
         }
 
         myProducts.push(chosenProduct); //lägg till chosenProduct i arrayen myProducts
         let chosenProductsJSON = JSON.stringify(myProducts); // gör om myProducts till en string
         localStorage.setItem('chosenProducts', chosenProductsJSON); //spara chosenProductsJSON i localstorage under chosenProducts
+    });
 
-/*
-         let chosenProductJSON = JSON.stringify(chosenProduct);
-         localStorage.setItem('chosenProduct', chosenProductJSON);
 
-         const myProductString = localStorage.getItem('chosenProduct');
-         const myProduct = JSON.parse(myProductString);
-         console.log(myProduct);
+    addToCart.addEventListener("click", cartLoader);
+
+
+    
+      function cartLoader() {
+
+        function loadFromStorage(itemName) {
+            const itemString = localStorage.getItem(itemName);
+            let item = JSON.parse(itemString);
+            console.log(item)
+            return item
+        }
+    
+        let myProducts = loadFromStorage('chosenProducts');
+        const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
+    
+        function numberOfProductschecker(array, number, object) {
+            if (array.length !== number) {
+                object.innerHTML = array.length;
         
-          */
-         
-
-        // let cartArray = JSON.parse(window.sessionStorage.cart);
-        // cartArray.push(detailsForItem);
-        // window.sessionStorage.cart = JSON.stringify(cartArray);
-      
-     });
-
-     
-
-};
-
-// Få det att funka med en for loop.
+            } else if (array.length === number) {
+                object.innerHTML = number;
+            }
+        }
+    
+        numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
+      }
 
 
+      cartLoader();
+
+
+
+}
 
 
 
 
 
 
-//  var detailsForItem;
-//  for (var i = 0; i < data.length; i++) {
-//      if (data[i].articleNumber == articleNr) {
-//          detailsForItem = data[i];
-//         break;
-//     }
-//  }

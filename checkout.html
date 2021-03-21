@@ -8,14 +8,16 @@
     <meta name="description" content="Sales of outdoor jackets" />
     <script src="https://kit.fontawesome.com/ab5fd5efd4.js" crossorigin="anonymous"></script>
     <title>Rainydays online shop</title>
+    <script src="/script/articles.js"></script>
+    <script src="script/checkout.js"></script>
 </head>
 
 <body>
     <header>
         <a href="index.html"><img src="/Images/RainyDays_Logo.png" alt="Rainydays RainyDays_Logo" class="logo"
                 id="logo-header"></a>
-                <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
-                <input type="checkbox" id="hamburger-menu">
+        <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
+        <input type="checkbox" id="hamburger-menu">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,7 +25,10 @@
                 <li><a href="women.html">Women</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="account.html" class="current">Account</a></li>
-                <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a>
+                    <div class="numberOfProducts">
+                        <p class="numberOfProductsInCart">0</p>
+                    </div>
             </ul>
         </nav>
     </header>
@@ -37,61 +42,84 @@
 
 
         <div class="checkout-container">
-            <div class="checkout-container-box-3">
-                <h2>Your products</h2>
-                <table>
-                    <tr>
-                        <div class="cart-product-info">
-                            <img src="/Images/Ranger_1.jpg" alt="Picture of the jacket Ranger" class="cart-pictures">
-                            <div>
-                                <h3>Ranger</h3>
-                                <p>1</p>
-                                <p>Size: Small</p>
-                                <p>Price: 169&euro;</p>
-                            </div>
-                        </div>
-                    </tr>
-                    <tr>
-                        <div class="cart-product-info">
-                            <img src="/Images/Arctic_1.jpg" alt="Picture of the jacket Arctic" class="cart-pictures">
-                            <div>
-                                <h3>Arctic</h3>
-                                <p>1</p>
-                                <p>Size: Large</p>
-                                <p>Price: 169&euro;</p>
-                            </div>
-                        </div>
-                    </tr>
-                </table>
-            </div>
             <div class="checkout-container-box-1">
                 <h2>Billing adress</h2>
-                <form>
-                    <label for="name"><i class="fas fa-user"></i>Full name</label>
-                    <input type="text" name="name">
-                    <label for="email"><i class="far fa-envelope"></i>Email</label>
-                    <input type="email" name="email">
-                    <label for="adress"><i class="fas fa-map-marker-alt"></i>Adress</label>
-                    <input type="text" name="adress">
-                    <label for="city"><i class="fas fa-city"></i>City</label>
-                    <input type="text" name="city">
-                    <label for="postal-code"><i class="fas fa-mail-bulk"></i>Postal code</label>
-                    <input type="text" name="postal-code">
+                <form id="checkoutForm">
+                    <div class="formContainer">
+                        <div class="formInputContainer">
+                            <label for="name"><i class="fas fa-user"></i>Full name (minimum 5 characters)</label>
+                            <input type="text" name="name" class="fullNameInput">
+                            <div class="fullNameError error">Please enter a valid name.</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="email"><i class="far fa-envelope"></i>Email</label>
+                            <input type="email" name="email" class="emailInput">
+                            <div class="emailError error">Please enter a valid email.</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="adress"><i class="fas fa-map-marker-alt"></i>Adress (minimum 6
+                                characters)</label>
+                            <input type="text" name="adress" class="adressInput">
+                            <div class="adressError error">Please enter a valid adress</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="city"><i class="fas fa-city"></i>City (minimum 2 characters)</label>
+                            <input type="text" name="city" class="cityInput">
+                            <div class="cityError error">Please enter a valid city</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="postal-code"><i class="fas fa-mail-bulk"></i>Postal code (minimum 4
+                                characters)</label>
+                            <input type="text" name="postal-code" class="postalCodeInput">
+                            <div class="postalCodeError error">Please enter a valid postal code</div>
+                        </div>
+                    </div>
+                    <div class="formContainer">
+                        <div class="formInputContainer">
+                            <label for="card-name"></i><i class="fas fa-user"></i>Full name on card (minimum 5
+                                characters)</label>
+                            <input type="text" name="card-name" class="cardNameInput">
+                            <div class="cardNameError error">Please enter a valid name</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="Credit-card-number"><i class="far fa-credit-card"></i>Credit card number (16
+                                digits)</label>
+                            <input type="text" name="Credit-card-number" class="cardNumberInput">
+                            <div class="cardNumberError error">Please enter a valid card number</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="adress"></i><i class="far fa-calendar-alt"></i>Expiration date
+                                (month/year)</label>
+                            <input type="text" name="expiration-date" placeholder="12/21" class="expirationDateInput">
+                            <div class="expirationDateError error">Please enter a valid exipration date</div>
+                        </div>
+                        <div class="formInputContainer">
+                            <label for="cvv" class="cvvLabel">CVV</label>
+                            <input type="text" name="cvv" placeholder="111" id="cvv" class="cvvInput">
+                            <div class="cvvError error">Please enter a valid CVV number</div>
+                        </div>
+                        <button type="submit" class="cta-1" id="checkoutConfirmButton">Confirm</button>
+                        <div class="purchaseSuccessful">
+                            <p>Your purchase has been successful!</p>
+                            <p class="purchaseSuccessfulParagraph">The goods will be delivered to the given adress
+                            within 3-5 workdays.</p>
+                            <p>A reciept has been sent to your email adress.</p>
+                            <p>Thank you for shopping on RainyDays!</p>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="checkout-container-box-2">
-                <h2>Card information</h2>
-                <form>
-                    <label for="card-name"></i>Name on card</label>
-                    <input type="text" name="card-name">
-                    <label for="Credit-card-number">Credit card number</label>
-                    <input type="text" name="Credit-card-number" placeholder="1111-2222-3333-4444">
-                    <label for="adress"></i>Expiration month/year</label>
-                    <input type="text" name="expiration-date" placeholder="12/12">
-                    <label for="cvv">CVV</label>
-                    <input type="text" name="cvv" placeholder="111">
-                </form>
-                <a href="" class="cta-1">Confirm</a>
+
+        </div>
+        <div class="checkout-container checkout-container-last">
+            <div class="checkout-container-box-3">
+                <h2>Your products</h2>
+                <div class="h3Container">
+                    <h3 id="checkoutH3"></h3>
+                </div>
+                <table class="checkout-container-box-3-table">
+
+                </table>
             </div>
         </div>
 
