@@ -50,6 +50,49 @@ window.onload = function () {
 
     }
 
+    const relatedProductsContainer = document.querySelector(".featured-products-container");
+    const url = "https://hjulbent.no/cms-ca/wp-json/wc/store/products";
+
+
+    async function getWordpressProducts() {
+        try {
+            const response = await fetch(url)
+            const result = await response.json();
+            console.log(result);
+
+            for (let i = 0; i < result.length; i++) {
+                const item = result[i];
+
+                relatedProductsContainer.innerHTML +=
+                    `
+                        <div class="featured-products-add">
+                            <a href="details.html?id=${item.id}"><img src="${item.images[0].src}" alt="Picture of a pwerson wearing jacket"
+                            class="related-jacket-pictures">
+                                <h3>${item.name}</h3>
+                                </a>
+                                <p>${item.prices.price}.00€</p>
+                                <div>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            <a href="details.html?id=${item.id}">
+                            <p class="read-more">Read more..</p>
+                            </a>
+                        </div>
+                    `
+            }
+
+        } catch (error) {
+            console.log("utz");
+        }
+
+
+    }
+
+    getWordpressProducts();
 
 
 

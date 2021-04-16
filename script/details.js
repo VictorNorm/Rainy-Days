@@ -2,10 +2,9 @@ const heading = document.getElementById("name");
 
 window.onload = function load() {
     const urlParams = new URLSearchParams(window.location.search);
-    const articleNr = urlParams.get('articleNumber');
-    const detailsForItem = data.find(item => {
-        return item.articleNumber === articleNr
-    })
+    const id = urlParams.get("id");
+    
+    console.log(id)
 
     //   console.log(detailsForItem);
 
@@ -20,131 +19,25 @@ window.onload = function load() {
     const quantity = document.getElementById("quantity");
     const currentPage = document.querySelector(".current-page")
 
-
-    currentPage.innerHTML = `${detailsForItem.category} > ${detailsForItem.name}`
-    heading.innerHTML = detailsForItem.name;
-    price.innerHTML = detailsForItem.price + detailsForItem.currency;
-    productPictureContainer.innerHTML = `<img src="${detailsForItem.images[0]}" class="product-jacket-picture">`
-    description.innerHTML = detailsForItem.description;
-
-    for (let i = 0; i < detailsForItem.size.length; i++) {
-        sizeSelect.innerHTML += `<option value="${detailsForItem.size[i]}">${detailsForItem.size[i]}</option>`;
-    }
-
-    for (let i = 0; i < detailsForItem.images.length; i++) {
-        columnPictures.innerHTML += `<img src="${detailsForItem.images[i]}" class="product-col-1-pictures">`;
-    }
-
-    for (let i = 0; i < detailsForItem.color.length; i++) {
-        colorSelect.innerHTML += `<option value="${detailsForItem.color[i]}">${detailsForItem.color[i]}</option>`
-    }
+    const url = "https://hjulbent.no/cms-ca/wp-json/wc/store/products/" + id;
 
 
-    addToCart.addEventListener('click', e => {
-
-        e.preventDefault();
-
-        //Load Cart if exists
-        let myProducts = [];
-        if (localStorage.getItem("chosenProducts") !== null) { //kolla om chosenProducts finns i localstorage
-            const myProductsString = localStorage.getItem("chosenProducts"); //hämta chosenProducts stringen ifrån localstorage
-            myProducts = JSON.parse(myProductsString); // gör om stringen chosenProducts till en array
-        }
-
-
-        let colorValue = color.value;
-        let sizeValue = size.value;
-        let productQuantity = quantity.value;
-
-
-        let chosenProduct = {
-            name: detailsForItem.name,
-            price: detailsForItem.price,
-            size: sizeValue,
-            color: colorValue,
-            quantity: productQuantity,
-            images: detailsForItem.images,
-            currency: detailsForItem.currency,
-            category: detailsForItem.category
-        }
-
-        myProducts.push(chosenProduct); //lägg till chosenProduct i arrayen myProducts
-        let chosenProductsJSON = JSON.stringify(myProducts); // gör om myProducts till en string
-        localStorage.setItem('chosenProducts', chosenProductsJSON); //spara chosenProductsJSON i localstorage under chosenProducts
-    });
-
-
-    addToCart.addEventListener("click", cartLoader);
-
-    function cartLoader() {
-
-        function loadFromStorage(itemName) {
-            const itemString = localStorage.getItem(itemName);
-            let item = JSON.parse(itemString);
-            console.log(item)
-            return item
-        }
-
-        let myProducts = loadFromStorage('chosenProducts');
-        const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
-
-        function numberOfProductschecker(array, number, object) {
-            if (array.length !== number) {
-                object.innerHTML = array.length;
-
-            } else if (array.length === number) {
-                object.innerHTML = number;
-            }
-        }
-
-        numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
-    }
-
-    cartLoader();
-
-
-    const relatedProductsContainer = document.querySelector(".related-products-container");
-    const url = "https://hjulbent.no/cms-ca/wp-json/wc/store/products";
-
-
-    async function getWordpressProducts() {
+    async function getWordpressProduct() {
         try {
-            const response = await fetch(url)
-            const result = await response.json();
-            console.log(result);
+            const response = await fetch(url);
+            const details = await response.json();
+            console.log(details);
 
-            console.log(currentPage.innerText);
-
-            for (let i = 0; i < result.length; i++) {
-                const item = result[i];
-
-                relatedProductsContainer.innerHTML +=
-                    `
-                        <div class="related-products-add">
-                            <a href="details.html?id=${item.id}"><img src="${item.images[0].src}" alt="Picture of the jacket Ranger"
-                            class="related-jacket-pictures">
-                                <h3>${item.name}</h3>
-                                </a>
-                                <p>${item.prices.price}.00€</p>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            <a href="rangermen.html">
-                            <p class="read-more">Read more..</p>
-                            </a>
-                        </div>
-                    `
-            }
-
-        } catch (error) {
-            console.log("utz");
+            heading.innerHTML = details.name;
+            price.innerHTML = details.prices.price + ".00€"
         }
-
-
+        catch(error){
+            console.log(error);
+        }
     }
 
-    getWordpressProducts();
+    getWordpressProduct();
 
+
+  
 }

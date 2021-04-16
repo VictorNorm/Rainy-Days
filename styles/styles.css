@@ -443,20 +443,30 @@ input::-webkit-inner-spin-button {
     border-radius: 5px;
 }
 
-.related-products-add {
+.featured-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: space-evenly;
+}
+
+
+
+.featured-products-add {
     border: 1px solid var(--blue);
     min-height: 300px;
     max-width: 210px;
     min-width: 210px;
     margin: 20px 10px;
     padding: 8px;
+    display: flex;
     flex-direction: column;
-    
+    justify-content: space-evenly;
     transition: transform 0.5s;
     background-color: var(--white);
 }
 
-.related-products-add:hover {
+.featured-products-add:hover {
     transform: translateY(-5px);
 }
 
