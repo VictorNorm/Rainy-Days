@@ -36,7 +36,7 @@ window.onload = function () {
                 <h3>${data[i].name}</h3>
                 <p>${data[i].shortDescription}</p>
             </a>
-            <p>169.00&euro;</p>
+            <p>${data[i].price}</p>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>

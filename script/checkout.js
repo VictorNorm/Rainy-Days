@@ -22,7 +22,7 @@ window.onload = function () {
     for (let i = 0; i < myProducts.length; i++) {
         // console.log(myProducts[i]);
         yourProductsContainer.innerHTML +=
-            `
+                                            `
                                                 <tr>
                                                     <div class="cart-product-info">
                                                         <img src="${myProducts[i].images[0]}" class="cart-product-pictures">

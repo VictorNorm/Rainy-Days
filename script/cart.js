@@ -22,7 +22,7 @@ function loadProductsInToView() {
 
     const myProducts = loadFromStorage('chosenProducts'); //ladda alla produkter ifrån localstorage
 
-    // console.log(myProducts);
+    //  console.log(myProducts);
 
     numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
     totalPriceChecker(myProducts);
@@ -48,7 +48,7 @@ function loadProductsInToView() {
                                     <p class="cart-product-size">${productObject.size}</p>
                                     <p class="cart-product-price">€${productObject.price}</p>
                                     <p class="cart-product-color">${productObject.color}</p>
-                                    <p>${productObject.gender}</p>
+                                    <p>${productObject.category}</p>
                                 </div>
                                 <button type="submit" class="remove" data-index="${i}">Remove</button> 
                                 </div>

@@ -448,9 +448,10 @@ input::-webkit-inner-spin-button {
     min-height: 300px;
     max-width: 210px;
     min-width: 210px;
-    margin: 20px 0px;
+    margin: 20px 10px;
     padding: 8px;
     flex-direction: column;
+    
     transition: transform 0.5s;
     background-color: var(--white);
 }

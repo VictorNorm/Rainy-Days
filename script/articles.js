@@ -7,7 +7,7 @@ data = [
         "color": ["Dark blue", "Light Blue"],
         "price": "169.00",
         "currency": "€",
-        "gender": "Mens jacket",
+        "category": "Mens jacket",
         "shortDescription": "Mens shell jacket, Ranger is well suited for autumn and winter use.",
         "description": `Ranger is a durable allround shell jacket that's windproof,
      waterproof and breathable. It's a top model specially designed for an active outdoors lifestyle. 
@@ -22,7 +22,7 @@ data = [
         "color": ["Black"],
         "price": "129.00",
         "currency": "€",
-        "gender": "Mens jacket",
+        "category": "Mens jacket",
         "shortDescription": "Mens shell jacket, Peak is well suited for autumn and winter use.",
         "description": `Peak is a durable allround shell jacket that's windproof, waterproof and breathable.
         It's a top model specially designed for an active outdoors lifestyle.
@@ -36,7 +36,7 @@ data = [
         "color": ["Black"],
         "price": "169.00",
         "currency": "€",
-        "gender": "Mens jacket",
+        "category": "Mens jacket",
         "shortDescription": "Mens down jacket, Arctic is well suited for autumn and winter use.",
         "description": `Arctic is a durable down jacket that's windproof, waterproof and breathable.
         It's a top model specially designed for an active outdoors lifestyle.
@@ -50,7 +50,7 @@ data = [
         "color": ["Blue"],
         "price": "136.00",
         "currency": "€",
-        "gender": "Mens jacket",
+        "category": "Mens jacket",
         "shortDescription": "Mens down jacket, Glacier is well suited for autumn and winter use.",
         "description": `Glacier is a durable down jacket that's windproof, waterproof and breathable.
         It's a top model specially designed for an active outdoors lifestyle.
@@ -64,7 +64,7 @@ data = [
         "color": ["Dark blue", "Light Blue"],
         "price": "169.00",
         "currency": "€",
-        "gender": "Womens jacket",
+        "category": "Womens jacket",
         "description": `Ranger is a durable allround shell jacket that's windproof,
      waterproof and breathable. It's a top model specially designed for an active outdoors lifestyle. 
      It's well suited for every season and every environment, 
@@ -78,7 +78,7 @@ data = [
         "color": ["Black"],
         "price": "129.00",
         "currency": "€",
-        "gender": "Womens jacket",
+        "category": "Womens jacket",
         "description": `Peak is a durable allround shell jacket that's windproof, waterproof and breathable.
         It's a top model specially designed for an active outdoors lifestyle.
         It's well suited for every season and every environment, should it be in the forest, at sea or in the mountains.`
@@ -91,7 +91,7 @@ data = [
         "color": ["Black"],
         "price": "169.00",
         "currency": "€",
-        "gender": "Womens jacket",
+        "category": "Womens jacket",
         "description": `Arctic is a durable down jacket that's windproof, waterproof and breathable.
         It's a top model specially designed for an active outdoors lifestyle.
         It's well suited for every season and every environment, should it be in the forest, at sea or in the mountains.`
@@ -104,7 +104,7 @@ data = [
         "color": ["Blue"],
         "price": "136.00",
         "currency": "€",
-        "gender": "Womens jacket",
+        "category": "Womens jacket",
         "description": `Glacier is a durable down jacket that's windproof, waterproof and breathable.
         It's a top model specially designed for an active outdoors lifestyle.
         It's well suited for every season and every environment, should it be in the forest, at sea or in the mountains. `

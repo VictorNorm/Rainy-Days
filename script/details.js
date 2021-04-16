@@ -18,8 +18,10 @@ window.onload = function load() {
     const description = document.getElementById("description");
     const addToCart = document.getElementById("cta-1");
     const quantity = document.getElementById("quantity");
+    const currentPage = document.querySelector(".current-page")
 
 
+    currentPage.innerHTML = `${detailsForItem.category} > ${detailsForItem.name}`
     heading.innerHTML = detailsForItem.name;
     price.innerHTML = detailsForItem.price + detailsForItem.currency;
     productPictureContainer.innerHTML = `<img src="${detailsForItem.images[0]}" class="product-jacket-picture">`
@@ -63,7 +65,7 @@ window.onload = function load() {
             quantity: productQuantity,
             images: detailsForItem.images,
             currency: detailsForItem.currency,
-            gender: detailsForItem.gender
+            category: detailsForItem.category
         }
 
         myProducts.push(chosenProduct); //lägg till chosenProduct i arrayen myProducts
@@ -74,9 +76,7 @@ window.onload = function load() {
 
     addToCart.addEventListener("click", cartLoader);
 
-
-    
-      function cartLoader() {
+    function cartLoader() {
 
         function loadFromStorage(itemName) {
             const itemString = localStorage.getItem(itemName);
@@ -84,31 +84,67 @@ window.onload = function load() {
             console.log(item)
             return item
         }
-    
+
         let myProducts = loadFromStorage('chosenProducts');
         const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
-    
+
         function numberOfProductschecker(array, number, object) {
             if (array.length !== number) {
                 object.innerHTML = array.length;
-        
+
             } else if (array.length === number) {
                 object.innerHTML = number;
             }
         }
-    
+
         numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
-      }
+    }
+
+    cartLoader();
 
 
-      cartLoader();
+    const relatedProductsContainer = document.querySelector(".related-products-container");
+    const url = "https://hjulbent.no/cms-ca/wp-json/wc/store/products";
 
 
+    async function getWordpressProducts() {
+        try {
+            const response = await fetch(url)
+            const result = await response.json();
+            console.log(result);
+
+            console.log(currentPage.innerText);
+
+            for (let i = 0; i < result.length; i++) {
+                const item = result[i];
+
+                relatedProductsContainer.innerHTML +=
+                    `
+                        <div class="related-products-add">
+                            <a href="details.html?id=${item.id}"><img src="${item.images[0].src}" alt="Picture of the jacket Ranger"
+                            class="related-jacket-pictures">
+                                <h3>${item.name}</h3>
+                                </a>
+                                <p>${item.prices.price}.00€</p>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            <a href="rangermen.html">
+                            <p class="read-more">Read more..</p>
+                            </a>
+                        </div>
+                    `
+            }
+
+        } catch (error) {
+            console.log("utz");
+        }
+
+
+    }
+
+    getWordpressProducts();
 
 }
-
-
-
-
-
-
