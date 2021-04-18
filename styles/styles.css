@@ -400,6 +400,7 @@ input::-webkit-inner-spin-button {
     scale: 1.1;
 }
 
+
 /* Product info --------------------------------------------- */
 
 .product-info {
@@ -409,6 +410,10 @@ input::-webkit-inner-spin-button {
     border-bottom: 1px solid var(--grey);
     margin: 30px;
     background-color: var(--white);
+}
+
+.detailsPicture {
+    display: block;
 }
 
 .product-info ul {

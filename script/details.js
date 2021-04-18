@@ -30,6 +30,8 @@ window.onload = function load() {
 
             heading.innerHTML = details.name;
             price.innerHTML = details.prices.price + ".00€"
+            description.innerHTML = details.description;
+            productPictureContainer.innerHTML = `<img src="${details.images[0].src}" class="detailsPicture">`
         }
         catch(error){
             console.log(error);
