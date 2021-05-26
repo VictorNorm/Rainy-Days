@@ -43,9 +43,7 @@ window.onload = function () {
     for (let i = 0; i < myProducts.length; i++) {
         // console.log(myProducts[i]);
         var totalPrices = myProducts[i].price * myProducts[i].quantity;
-
         addedPrices.push(totalPrices);
-
     }
 
     let addedPricesReduced = addedPrices.reduce(priceAdder);
@@ -54,6 +52,7 @@ window.onload = function () {
     if (addedPricesReduced > 0 && addedPricesReduced < 180) {
         deliveryCost = 35;
     }
+
     let addedPricesReducedAndDeliveryCost = addedPricesReduced + deliveryCost;
 
     checkoutTotalPriceContainer.innerHTML = `Total price:<p id="checkoutH3P">${addedPricesReducedAndDeliveryCost}.00€</p>`;
@@ -61,7 +60,6 @@ window.onload = function () {
     function priceAdder(total, num) {
         return total + num;
     }
-
 
     const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
 
@@ -81,7 +79,6 @@ window.onload = function () {
     }
 
     numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
-
 
     const fullNameError = document.querySelector(".fullNameError");
     const emailError = document.querySelector(".emailError");
@@ -218,7 +215,6 @@ window.onload = function () {
         const patternMatch = regEx.test(email);
         return patternMatch;
     }
-
 
     checkoutConfirmButton.addEventListener("click", formValidation);
 
