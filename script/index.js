@@ -25,23 +25,22 @@ window.onload = function () {
     // Api call and HTML generation -------------------------------------------//
 
 
-    const addWrapperMen = document.querySelector(".add-wrapper-men")
+    const addWrapperMen = document.querySelector(".add-wrapper-men");
+    const addWrapperWomen = document.querySelector(".add-wrapper-women");
 
     const relatedProductsContainer = document.querySelector(".featured-products-container");
     const url = "https://hjulbent.no/rainyDays/wp-json/wc/store/products";
 
 
-    async function getWordpressProducts () {
+    async function getWordpressProducts() {
 
-        try{
+        try {
             const response = await fetch(url);
             const details = await response.json();
             console.log(details);
 
             htmlGenerator(details);
-        }
-
-        catch(error) {
+        } catch (error) {
             console.log(error);
         }
     }
@@ -50,19 +49,19 @@ window.onload = function () {
     function htmlGenerator(data) {
         for (let i = 0; i < data.length; i++) {
             const product = data[i];
-            console.log(product.categories);
+            // console.log(product.categories);
 
-            if (product.categories.some(object => object.name === 'Mens jacket')) {
+            if (product.categories.some(object => object.name === 'Men\'s jacket')) {
                 /* Söker igenom arrayen product.categories och letar efter name */
-                addWrapperMen.innerHTML += 
-                `
+                addWrapperMen.innerHTML +=
+                    `
                         <div class="add-type-2">
                             <a href="details.html?id=${product.id}"><img src="${product.images[0].src}"
-                                alt="Picture of the jacket ${data[i].name}" class="jacket-pictures">
-                             <h3>${data[i].name}</h3>
-                           <p>${data[i].shortDescription}</p>
+                                alt="Picture of the jacket ${product.name}" class="jacket-pictures">
+                             <h3>${product.name}</h3>
+                           <p class="productShortDescription">${stripHtml(product.short_description)}</p>
                          </a>
-                                  <p>${data[i].price}</p>
+                                  <p>${product.prices.regular_price}.00€</p>
                                   <i class="fas fa-star"></i>
                                   <i class="fas fa-star"></i>
                                   <i class="fas fa-star"></i>
@@ -70,105 +69,39 @@ window.onload = function () {
                                   <i class="fas fa-star"></i>
                         </div>
                 `;
-              } else if(product.categories.some(object => object.name === 'Womens jacket')) {
-                  
-              }
-         
+            } else if (product.categories.some(object => object.name === 'Women\'s jacket')) {
+                addWrapperWomen.innerHTML +=
+                `
+                    <div class="add-type-2">
+                        <a href="details.html?id=${product.id}"><img src="${product.images[0].src}"
+                            alt="Picture of the jacket ${product.name}" class="jacket-pictures">
+                         <h3>${product.name}</h3>
+                       <p class="productShortDescription">${stripHtml(product.short_description)}</p>
+                     </a>
+                              <p>${product.prices.regular_price}.00€</p>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                    </div>
+            `;
 
-            
-                
+            }
 
-
-            
         }
     }
 
-
     getWordpressProducts();
 
-
-    // for (let i = 0; i < data.length; i++) {
-    //     console.log(data[i])
-
-    //     addWrapperMen.innerHTML +=
-    //         `
-    //      <div class="add-type-2">
-    //         <a href="details.html?articleNumber=${data[i].articleNumber}"><img src="${data[i].images[0]}"
-    //                 alt="Picture of the jacket ${data[i].name}" class="jacket-pictures">
-    //             <h3>${data[i].name}</h3>
-    //             <p>${data[i].shortDescription}</p>
-    //         </a>
-    //         <p>${data[i].price}</p>
-    //         <i class="fas fa-star"></i>
-    //         <i class="fas fa-star"></i>
-    //         <i class="fas fa-star"></i>
-    //         <i class="fas fa-star"></i>
-    //         <i class="fas fa-star"></i>
-    //      </div>
-    //      `
-    //      if(i === 3) {
-    //          break;
-    //      }
-
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // async function getWordpressProducts() {
-    //     try {
-    //         const response = await fetch(url)
-    //         const result = await response.json();
-    //         console.log(result);
-
-    //         for (let i = 0; i < result.length; i++) {
-    //             const item = result[i];
-
-    //             relatedProductsContainer.innerHTML +=
-    //                 `
-    //                     <div class="featured-products-add">
-    //                         <a href="details.html?id=${item.id}"><img src="${item.images[0].src}" alt="Picture of a pwerson wearing jacket"
-    //                         class="related-jacket-pictures">
-    //                             <h3>${item.name}</h3>
-    //                             </a>
-    //                             <p>${item.prices.price}.00€</p>
-    //                             <div>
-    //                                 <i class="fas fa-star"></i>
-    //                                 <i class="fas fa-star"></i>
-    //                                 <i class="fas fa-star"></i>
-    //                                 <i class="fas fa-star"></i>
-    //                                 <i class="fas fa-star"></i>
-    //                             </div>
-    //                         <a href="details.html?id=${item.id}">
-    //                         <p class="read-more">Read more..</p>
-    //                         </a>
-    //                     </div>
-    //                 `
-    //         }
-
-    //     } catch (error) {
-    //         console.log("utz");
-    //     }
-
-
-    // }
-
-   
+    function stripHtml(html) {
+        // Create a new div element
+        var temporalDivElement = document.createElement("div");
+        // Set the HTML content with the providen
+        temporalDivElement.innerHTML = html;
+        // Retrieve the text property of the element (cross-browser support)
+        return temporalDivElement.textContent || temporalDivElement.innerText || "";
+    }
 
 
 

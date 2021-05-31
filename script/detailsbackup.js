@@ -39,7 +39,7 @@ window.onload = function load() {
         colorSelect.innerHTML += `<option value="${detailsForItem.color[i]}">${detailsForItem.color[i]}</option>`
     }
 
-
+    const addToCart = document.getElementById("cta-1");
     addToCart.addEventListener('click', e => {
 
         e.preventDefault();

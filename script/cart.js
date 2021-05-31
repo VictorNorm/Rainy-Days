@@ -13,17 +13,18 @@ function loadProductsInToView() {
     const freeDeliveryContainer = document.querySelector(".total-price");
     const freeDelivery = document.querySelector(".freeDelivery");
 
-    const totalProductPrice = document.querySelector(".totalProductPrice")
+    const totalProductPrice = document.querySelector(".totalProductPrice");
 
-    const addToCart = document.querySelector(".cta-1")
+    const addToCart = document.querySelector(".cta-1");
 
 
-    const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart")
+    const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
 
     const myProducts = loadFromStorage('chosenProducts'); //ladda alla produkter ifrån localstorage
 
     //  console.log(myProducts);
 
+   
     numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
     totalPriceChecker(myProducts);
 
@@ -41,14 +42,14 @@ function loadProductsInToView() {
                             <td>
                             <div class="cart-product-info">
                                 <div>
-                                <img src="${productObject.images[0]}" class="cart-product-pictures">
+                                <img src="${productObject.images.src}" class="cart-product-pictures">
                                 </div>
                                 <div>
                                     <h3 class="cart-product-name">${productObject.name}</h3>
-                                    <p class="cart-product-size">${productObject.size}</p>
+                                    <p class="cart-product-size">${capitalize(productObject.size)}</p>
                                     <p class="cart-product-price">€${productObject.price}</p>
-                                    <p class="cart-product-color">${productObject.color}</p>
-                                    <p>${productObject.category}</p>
+                                    <p class="cart-product-color">${capitalize(productObject.color)}</p>
+                                    <p>${productObject.category.name}</p>
                                 </div>
                                 <button type="submit" class="remove" data-index="${i}">Remove</button> 
                                 </div>
@@ -57,8 +58,6 @@ function loadProductsInToView() {
                             <td class="cartProductTablePriceData">${totalProductPrice}</td>
                         </tr>
                         `;
-
-
     }
 
 
@@ -71,16 +70,12 @@ function loadProductsInToView() {
         }
     }
 
-
-
     const productRemoveButton = document.getElementsByClassName("remove"); // hämta alla element med classen remove. den gör en array med element
     for (var i = 0; i < productRemoveButton.length; i++) { //loopa alla "remove"-knappar
         productRemoveButton[i].addEventListener('click', removeProduct); //lägg ett event "click" på alla knappar
         productRemoveButton[i].addEventListener('click', numberOfProductschecker(myProducts, 0, numberOfProductsInCart));
 
     }
-
-
 
     var addedPrices = [0];
 
@@ -93,7 +88,6 @@ function loadProductsInToView() {
         }
 
         addedPrices.push(totalPrices);
-
     }
 
     // console.log(addedPrices);
@@ -142,8 +136,11 @@ function loadProductsInToView() {
 // Functions --------------------------------------------------------- //
 
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
-
+// numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
 function numberOfProductschecker(array, number, object) {
     if (array.length !== number) {
         object.innerHTML = array.length;

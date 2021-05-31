@@ -20,18 +20,18 @@ window.onload = function () {
     loadFromStorage(myProducts);
 
     for (let i = 0; i < myProducts.length; i++) {
-        // console.log(myProducts[i]);
+        console.log(myProducts[i]);
         yourProductsContainer.innerHTML +=
                                             `
                                                 <tr>
                                                     <div class="cart-product-info">
-                                                        <img src="${myProducts[i].images[0]}" class="cart-product-pictures">
+                                                        <img src="${myProducts[i].images.src}" class="cart-product-pictures">
                                                         <div>
                                                             <h3>${myProducts[i].name}</h3>
                                                             <p>Quantity: ${myProducts[i].quantity}</p>
-                                                            <p>Size: ${myProducts[i].size}</p>
+                                                            <p>Size: ${capitalize(myProducts[i].size)}</p>
                                                             <p class="productPrices">${myProducts[i].price}€</p>
-                                                            <p>${myProducts[i].gender}</p>
+                                                            <p>${myProducts[i].category.name}</p>
                                                         </div>
                                                     </div>
                                                 </tr>
@@ -222,5 +222,9 @@ window.onload = function () {
         yourProductsContainer.innerHTML = "";
         checkoutTotalPriceContainer.innerHTML = "";
     }
+
+    function capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
 
 };

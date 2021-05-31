@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="styles/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mens jackets availible for sale at Rainydays online store">
     <script src="https://kit.fontawesome.com/ab5fd5efd4.js" crossorigin="anonymous"></script>
-    <title>Rainydays online shop</title>
-    <script src="script/contact.js"></script>
+    <title>Mens jackets Rainydays</title>
+    <!-- <script src="script/index.js"></script> -->
 </head>
+
 <body>
     <header>
-        <a href="index.html"><img src="/Images/RainyDays_Logo.png" alt="Rainydays RainyDays_Logo" class="logo"
+        <a href="index.html"><img src="Images/RainyDays_Logo.png" alt="Rainydays RainyDays_Logo" class="logo"
                 id="logo-header"></a>
                 <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
                 <input type="checkbox" id="hamburger-menu">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="men.html">Men</a></li>
+                <li><a href="men.html" class="current">Men</a></li>
                 <li><a href="women.html">Women</a></li>
-                <li><a href="contact.html" class="current">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="account.html">Account</a></li>
                 <li><a href="cart.html"><i class="fas fa-shopping-cart" id="shopping-cart"></i></a>
                     <div class="numberOfProducts">
@@ -28,41 +31,20 @@
             </ul>
         </nav>
     </header>
-
-    <main class="contact-main">
+    <main>
         <form class="top-search-bar">
             <input type="text" name="search-box" placeholder="Search.." class="search-box">
             <a href=""><i class="fas fa-search" id="top-search-icon"></i></a>
         </form>
-        <h1>Contact us</h1>
-
-        <form class="contact-form">
-            <h2>Contact us</h2>
-
-            
-            <div class="email-box">
-                <h3><i class="fas fa-envelope"></i> Email us</h3>
-                <label for="email" class="email-label">Your email</label>
-                <input type="email" name="email" id="email">
-                <div class="email-error">Please enter a valid email.</div>
-            </div>
-
-            <div>
-                <label for="message" class="message-label">Your message</label>
-                <p>Minimum 15 characters</p>
-                <textarea name="message" id="textarea" cols="30" rows="10" class="textarea-1"></textarea>
-            </div>
-            
-            <button type="submit" id="contact-button" disabled>Send</button>
-            <div class="messageSuccess">Your message has been sent successfully!</div>
-            <h3><i class="fas fa-phone"></i> You can also call us at</h3>
-            <p>55 55 55 55</p>
-        </form>
-        
+        <h1 class="h1-categories">Women's jackets</h1>
+        <section class="section-jackets">Rainydays has a collection of high quality jackets suited for different
+            purposes,
+            are you a professional skier, hiking enthusiast or just generally happy spending time outdoors,
+            you've come to the right place.
+        </section>
+        <div class="add-wrapper">
+        </div>
     </main>
-    <aside>
-
-    </aside>
     <footer>
         <ul>
             <li class="list-heading">About Rainydays</li>
@@ -82,7 +64,6 @@
             <li><i class="fab fa-instagram"></i></li>
         </ul>
     </footer>
-
-    <!-- <script src="script/js-contact.js"></script> -->
+    <script src="script/women.js"></script>
 </body>
 </html>
