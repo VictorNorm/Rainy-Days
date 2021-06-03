@@ -1,3 +1,4 @@
+import { loadFromStorage, numberOfProductsChecker } from './functions.js';
 const heading = document.getElementById("name");
 
 window.onload = function load() {
@@ -98,30 +99,8 @@ window.onload = function load() {
 
             function cartLoader() {
         
-                function loadFromStorage(itemName) {
-                    const itemString = localStorage.getItem(itemName);
-                    let item = JSON.parse(itemString);
-                    return item ?? [];
-                }
-        
                 let myProducts = loadFromStorage('chosenProducts')
-/*
-                if(loadFromStorage('chosenProducts') != null)
-                myProducts = loadFromStorage('chosenProducts')
-                }else{
-                    myProducts = []
-                }
-*/
                 const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
-        
-                function numberOfProductschecker(array, number, object) {
-                    if (array.length !== number) {
-                        object.innerHTML = array.length;
-        
-                    } else if (array.length === number) {
-                        object.innerHTML = number;
-                    }
-                }
         
                 numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
             }

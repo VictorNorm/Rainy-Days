@@ -4,34 +4,7 @@ import { loadFromStorage, numberOfProductsChecker } from './functions.js';
 window.onload = function () {
 
     // Cart functionality ---------------------------------------------------------//
-    /*
-    function loadFromStorage(itemName) {
-        const itemString = localStorage.getItem(itemName);
-        let item = JSON.parse(itemString);
-        return item ?? [];
-    }
-    */
-/*
-    function numberOfProductsChecker(array, number, object) {
-        if (array.length !== number) {
-            object.innerHTML = array.length;
 
-        } else if (array.length === number) {
-            object.innerHTML = number;
-        }
-    }
-    */
-    /*
-    function numberOfProductsChecker(array, number, object) {
-        if (array === null) {
-            object.innerHTML = number;
-            myProducts;
-            console.log(myProducts);
-        } else if (array.length === null) {
-            object.innerHTML = number;
-        }
-    }
-*/
     const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
     const myProducts = loadFromStorage('chosenProducts');
 
