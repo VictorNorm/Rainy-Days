@@ -101,11 +101,17 @@ window.onload = function load() {
                 function loadFromStorage(itemName) {
                     const itemString = localStorage.getItem(itemName);
                     let item = JSON.parse(itemString);
-                    console.log(item)
-                    return item
+                    return item ?? [];
                 }
         
-                let myProducts = loadFromStorage('chosenProducts') ?? [];
+                let myProducts = loadFromStorage('chosenProducts')
+/*
+                if(loadFromStorage('chosenProducts') != null)
+                myProducts = loadFromStorage('chosenProducts')
+                }else{
+                    myProducts = []
+                }
+*/
                 const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
         
                 function numberOfProductschecker(array, number, object) {

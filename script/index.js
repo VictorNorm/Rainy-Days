@@ -1,14 +1,16 @@
+import { loadFromStorage } from './functions.js';
+
+
 window.onload = function () {
 
     // Cart functionality ---------------------------------------------------------//
-    
+    /*
     function loadFromStorage(itemName) {
         const itemString = localStorage.getItem(itemName);
         let item = JSON.parse(itemString);
-        console.log(item)
-        return item
+        return item ?? [];
     }
-    
+    */
 
     function numberOfProductsChecker(array, number, object) {
         if (array.length !== number) {
@@ -30,7 +32,7 @@ window.onload = function () {
     }
 */
     const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
-    let myProducts = loadFromStorage('chosenProducts') ?? [];
+    const myProducts = loadFromStorage('chosenProducts');
 
     numberOfProductsChecker(myProducts, 0, numberOfProductsInCart);
 
