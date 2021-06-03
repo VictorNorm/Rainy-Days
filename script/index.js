@@ -1,5 +1,4 @@
-import { loadFromStorage } from './functions.js';
-import { numberOfProductsChecker } from './functions.js';
+import { loadFromStorage, numberOfProductsChecker } from './functions.js';
 
 
 window.onload = function () {

@@ -4,5 +4,15 @@ function loadFromStorage(itemName) {
     let item = JSON.parse(itemString);
     return item ?? [];
 }
+
+function numberOfProductsChecker(array, number, object) {
+    if (array.length !== number) {
+        object.innerHTML = array.length;
+
+    } else if (array.length === number) {
+        object.innerHTML = number;
+    }
+}
+
  
-export { loadFromStorage };
+export { loadFromStorage, numberOfProductsChecker };
