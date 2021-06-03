@@ -102,7 +102,7 @@ window.onload = function load() {
                 let myProducts = loadFromStorage('chosenProducts')
                 const numberOfProductsInCart = document.querySelector(".numberOfProductsInCart");
         
-                numberOfProductschecker(myProducts, 0, numberOfProductsInCart);
+                numberOfProductsChecker(myProducts, 0, numberOfProductsInCart);
             }
         
             cartLoader();
