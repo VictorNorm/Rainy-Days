@@ -1,4 +1,4 @@
-import { loadFromStorage } from './functions.js';
+import { loadFromStorage, numberOfProductsChecker } from './functions.js';
 
 
 window.onload = function () {
@@ -11,7 +11,7 @@ window.onload = function () {
         return item ?? [];
     }
     */
-
+/*
     function numberOfProductsChecker(array, number, object) {
         if (array.length !== number) {
             object.innerHTML = array.length;
@@ -20,6 +20,7 @@ window.onload = function () {
             object.innerHTML = number;
         }
     }
+    */
     /*
     function numberOfProductsChecker(array, number, object) {
         if (array === null) {
