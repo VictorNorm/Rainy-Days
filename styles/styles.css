@@ -67,6 +67,10 @@ main {
     background-color: var(--lightgrey);
 }
 
+.current {
+    border-bottom: 2px solid var(--grey);
+}
+
 /* CSS Variables --------------------------------------------- */
 
 :root {
@@ -81,6 +85,7 @@ main {
 /* Header --------------------------------------------- */
 
 header {
+    position: relative;
     display: flex;
     max-width: 1300px;
     margin: auto;
@@ -107,6 +112,10 @@ nav li {
 header #hamburger-menu,
 header label {
     display: none;
+}
+
+.cartLink:hover {
+    text-decoration: none;
 }
 
 /* Men, Women --------------------------------------------- */
@@ -1017,10 +1026,18 @@ footer li {
 
     nav li {
         display: block;
-        margin: 10px;
+        margin: 15px;
+        font-size: 29px;
+        border-bottom: 1px solid #ccc;
     }
 
     nav {
+        position: absolute;
+        top: 98px;
+        right: 0px;
+        width: 150px;
+        background-color: white;
+        border: 1px solid #ccc;
         flex: none;
         display: none;
     }
