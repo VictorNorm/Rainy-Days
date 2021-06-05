@@ -339,7 +339,7 @@ div .fa-star-half-alt {
     flex: 0.3;
     display: flex;
     flex-direction: column;
-    margin: 5px 0px 5px 5px;
+    margin: 5px;
     padding: 10px;
     align-items: flex-start;
     background-color: var(--white);
@@ -605,7 +605,7 @@ td:first-child {
 
 .checkout-container {
     border: 1px solid var(--blue);
-    margin: 0px 50px 0px;
+    margin: 0px 20px 0px;
     display: flex;
     background-color: var(--blue);
 }
@@ -961,6 +961,10 @@ footer li {
         padding-bottom: 20px;
     }
 
+    #price {
+        margin: 10px 0px;
+    }
+
     .product-container,
     .cart-container {
         flex-direction: column;
@@ -969,7 +973,6 @@ footer li {
     .product-container-box-1,
     .product-container-box-2 {
         order: 1;
-        
     }
 
     .product-container-box-2 a,
@@ -979,7 +982,7 @@ footer li {
 
     .product-col-1 {
         flex-direction: row;
-        order: 2;
+        /* order: 2; */
     }
 
     .product-col-1-pictures {
@@ -1003,6 +1006,10 @@ footer li {
 }
 
 @media only screen and (max-width: 800px) {
+
+    #checkoutForm {
+        flex-direction: column;
+    }
 
     .add-1 img {
         max-width: 100%;
@@ -1039,6 +1046,10 @@ footer li {
 
 @media only screen and (max-width: 520px) {
 
+    .product-col-1-pictures {
+        max-height: 100px;
+    }
+
     .add-1 {
         background-color: var(--blue);
     }
@@ -1054,9 +1065,17 @@ footer li {
     .add-1-box-2 {
         flex: 1;
     }
+
+    .tableHidden {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 410px) {
+
+    .checkout-container {
+        margin: 0px;
+    }
 
     footer {
         flex-direction: column;

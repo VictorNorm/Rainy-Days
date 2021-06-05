@@ -1,4 +1,6 @@
 import { loadFromStorage, numberOfProductsChecker } from './functions.js';
+
+
 const heading = document.getElementById("name");
 
 window.onload = function load() {
@@ -107,9 +109,6 @@ window.onload = function load() {
         
             cartLoader();
 
-
-
-
         }
         catch(error){
             console.log(error);
@@ -119,17 +118,6 @@ window.onload = function load() {
     getWordpressProduct();
   
 
-    
-
-
-
-
-
-
-
-
-
-
     function stripHtml(html) {
         var temporalDivElement = document.createElement("div");
         temporalDivElement.innerHTML = html;
@@ -137,8 +125,6 @@ window.onload = function load() {
     }
 
     
-
-
 
 }
 

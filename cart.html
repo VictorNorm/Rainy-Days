@@ -9,8 +9,8 @@
     <script src="https://kit.fontawesome.com/ab5fd5efd4.js" crossorigin="anonymous"></script>
     <title>Rainydays online shop</title>
     <script src="script/articles.js"></script>
-    <script src="script/details.js"></script>
-    <script src="script/cart.js"></script>
+    <script type="module" src="script/details.js"></script>
+    <script type="module" src="script/cart.js"></script>
 </head>
 
 <body>
@@ -42,11 +42,11 @@
 
         <div class="cart-container">
             <div class="cart-container-box-1">
-                <table>
+                <table class="cartTable">
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Products</th>
+                        <th class="tableHidden">Quantity</th>
+                        <th class="tableHidden">Price</th>
                     </tr>
                 </table>
                 <table id="cartTable">

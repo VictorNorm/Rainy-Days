@@ -46,8 +46,8 @@ function loadProductsInToView() {
                                 </div>
                                 <div>
                                     <h3 class="cart-product-name">${productObject.name}</h3>
-                                    <p class="cart-product-size">${capitalize(productObject.size)}</p>
                                     <p class="cart-product-price">€${productObject.price}</p>
+                                    <p class="cart-product-size">${capitalize(productObject.size)}</p>    
                                     <p class="cart-product-color">${capitalize(productObject.color)}</p>
                                     <p>${productObject.category.name}</p>
                                 </div>
